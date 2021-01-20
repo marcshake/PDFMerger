@@ -303,9 +303,9 @@ class fpdi_pdf_parser extends pdf_parser
         if (!isset($obj[1][1]['/Parent'])) {
             return false;
         }
-
         $res = $this->_getPageRotation($obj[1][1]['/Parent']);
-        if ($res[0] == pdf_parser::TYPE_OBJECT)
+
+        if (isset($res[0]) && $res[0] == pdf_parser::TYPE_OBJECT)
             return $res[1];
 
         return $res;
