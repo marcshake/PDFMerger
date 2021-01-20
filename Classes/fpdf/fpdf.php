@@ -1093,7 +1093,8 @@ class FPDF
             $this->Error('mbstring overloading must be disabled');
         }
         // Ensure runtime magic quotes are disabled
-        if(get_magic_quotes_runtime()) {
+        if(function_exists('get_magic_quotes_runtime')) {
+            get_magic_quotes_runtime();
             if (version_compare(PHP_VERSION, '5.3.0', '<')) {
                   @set_magic_quotes_runtime(0);
                 if(get_magic_quotes_runtime()) {
